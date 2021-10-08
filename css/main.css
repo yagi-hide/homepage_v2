@@ -1,0 +1,701 @@
+#canvas { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+@font-face {
+	font-family: "Noto Sans Japanese";
+	font-style: normal;
+	font-weight: 700;
+	src: url("../fonts/NotoSansCJKJP-Bold-Subset.woff2") format("woff2"), url("../fonts/NotoSansCJKJP-Bold-Subset.woff") format("woff"), url("../fonts/NotoSansCJKjp-Bold-Subset.ttf") format("truetype");
+}
+
+@media (min-width: 1200px) {
+	.content {
+		width: 900px !important;
+	}
+}
+@media (min-width: 992px) {
+	.content {
+		width: 820px; /* 970px - 200px */
+	}
+}
+@media (min-width: 768px) {
+	.content {
+		width: 720px; /* 750px - 50px */
+	}
+}
+@media (max-width: 390px) {
+	/* 510 = 480 + 15 * 2 */
+	/* 390 = 360 + 15 * 2 */
+	.content {
+		width: 100%;
+	}
+}
+
+html, body {
+	background-color: #f0f6ff;
+	background-repeat: no-repeat;
+}
+#index-page,#index-page header {
+	height: 100%;
+}
+
+#index-page #header {
+	position: relative;
+	width: 100%;
+	height:100%;
+}
+
+#index-page #headerlogo-wrapper{
+	display: none;
+	position: absolute;
+	top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit- transform: translateY(-50%) translateX(-50%);
+}
+
+#index-page #headerlogo{
+	width:100%;
+}
+
+strong, em {
+	font-weight: normal;
+	font-style: normal;
+}
+
+.maincontent {
+	margin: 0px auto;
+	padding: 55px;
+}
+
+.content {
+	margin: 0px auto;
+}
+
+#nav {
+	width: 100%;
+	left: 50%;
+	z-index: 99;
+	text-shadow: 0 0 1px #000;
+	height: 43px;
+	margin-top: 0px;
+	margin-left: -50%;
+	padding: 5px 0px 3px 0px;
+	position: fixed;
+	_position: absolute;
+	/* visibility: hidden; */
+	background-color: rgba(255, 255, 255, 0.85);
+}
+
+#bar {
+	width: 900px;
+	height: 80px;
+	margin: 0 auto;
+}
+
+#navimg {
+	width: 140px;
+	margin-top: 7px;
+}
+
+#navlogo {
+	float: left;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#navlogo p {
+	font-family: "Century Gothic";
+	font-size: 22px;
+	text-align: center;
+	margin: 5px auto;
+	padding: 0;
+}
+
+#navbar {
+	float: right;
+}
+
+#bar:after {
+	clear: both;
+}
+
+a {
+	opacity: 1;
+}
+
+a:hover {
+	opacity: 0.8;
+}
+
+.dropmenu {
+	*zoom: 1;
+	list-style-type: none;
+	width: 750px;
+	margin: 5px auto 20px;
+	padding: 0;
+}
+
+.dropmenu:before, .dropmenu:after {
+	content: "";
+	display: table;
+}
+
+.dropmenu:after {
+	clear: both;
+}
+
+.dropmenu li {
+	position: relative;
+	width: 16.6%;
+	float: left;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.dropmenu li a {
+	display: block;
+	margin: 0;
+	padding: 10px 0 10px;
+	background: #13448f;
+	color: #fff;
+	font: bold 35px/1 "Montserrat", "Noto Sans Japanese", "游ゴシック", "游ゴシック体", "YuGothic", "Yu Gothic", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;
+	letter-spacing: 0.1em;
+	font-size: 11px;
+	line-height: 1;
+	text-decoration: none;
+
+	border-left:1px solid #0b2a1c;
+	box-shadow: 1px 0px 0px rgba(34,101,204,0.3) inset,
+		-1px 0px 0px rgba(34,101,204,0.3) inset,
+		0px 1px 1px rgba(15,54,114,0.1) inset,
+		0px -1px 1px rgba(15,54,114,0.3) inset,
+		0px 1px 3px #2265cc;
+	font-weight: bold;
+	text-shadow:0 -1px 0px #333,0 1px 0px #555;
+}
+
+.dropmenu li ul {
+	list-style: none;
+	position: absolute;
+	z-index: 999;
+	top: 100%;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.dropmenu li ul li {
+	width: 100%;
+}
+
+.dropmenu li ul li a {
+	padding: 10px 10px;
+	border-top: 1px solid #13448f;
+	background: #0f336b;
+	text-align: left;
+}
+
+.dropmenu li:hover > a {
+	background: #0f336b;
+}
+
+.dropmenu li a:hover {
+	background: #0a244a;
+}
+
+#navmenu li ul {
+	visibility: hidden;
+	perspective: 400px;
+	opacity: 0;
+	transition: .8s;
+}
+
+#navmenu li:hover ul {
+	visibility: visible;
+	opacity: 1;
+}
+
+#navmenu ul li {
+	transform: rotateY(90deg);
+	transform-origin: 50% 0;
+	transition: .5s;
+}
+
+#navmenu li:hover li {
+	transform: rotateY(0);
+}
+
+#navmenu ul li:nth-child(2) {
+	transition-delay: .1s;
+}
+
+#navmenu ul li:nth-child(3) {
+	transition-delay: .2s;
+}
+
+#navmenu ul li:nth-child(4) {
+	transition-delay: .3s;
+}
+#toggle-menu-button{
+	display: none;
+}
+/* ナビゲーションバーレスポンシブ対応 */
+@media screen and (max-width: 900px) {
+	#bar {
+    width: 100%;
+    height: 80px;
+	}
+	#navlogo{
+		width: 100%;
+		text-align: center;
+	}
+	#incnav{
+		position: relative;
+	}
+	#nav {
+		width: 100%;
+    z-index: 99;
+    text-shadow: none;
+    height: 43px;
+    margin-top: 0px;
+		margin-left: 0px;
+    padding: 0px;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(255, 255, 255, 0.85);
+		transition: .5s;
+	}
+	#navbar {
+		display: none;
+    float: none;
+		position: absolute;
+		top: 43px;
+		left:0px;
+		width: 100%;
+	}
+	#navbar.active{
+		display: block;
+	}
+	.dropmenu {
+    list-style-type: none;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+	}
+	.dropmenu>li{
+		display: block;
+		position: relative;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+	}
+	.dropmenu>li>ul{
+		width:100%;
+		text-align: center;
+	}
+	.dropmenu>li>ul>li>a{
+		width:100%;
+		text-align: center;
+		padding: 10px 0px 10px 0px;
+	}
+	.dropmenu a:hover{
+		opacity: 1;
+	}
+	#toggle-menu-button{
+		text-align: center;
+    display: inline-block;
+    line-height: 43px;
+    font-size: 25px;
+  	width: 45px;
+		position: absolute;
+		right: 5px;
+		color:#10317C;
+	}
+	#toggle-menu-button:hover, #toggle-menu-button.active{
+		background-color: #eee;
+	}
+	#toggle-menu-button:active, #toggle-menu-button.active:active{
+		background-color: #fff;
+	}
+	#toggle-menu-button span{
+		border: 1px solid #10317C;
+    padding: 3px 5px 3px 5px;
+    border-radius: 5px;
+		width: 30px;
+    height: 30px;
+	}
+
+	#navmenu li.active ul {
+		visibility: visible;
+		opacity: 1;
+	}
+
+	#navmenu li:hover ul {
+		visibility: hidden;
+	}
+
+	#navmenu ul li {
+		transform: rotateY(90deg);
+		transform-origin: 50% 0;
+		transition: .5s;
+	}
+
+	#navmenu li.active li {
+		transform: rotateY(0);
+	}
+}
+
+ul.hoge {
+	border: solid 2px #ffb03f;
+	padding: 0.5em;
+	position: relative;
+	margin-top: 2em;
+  }
+ul.hoge li {
+	line-height: 1.5;
+	padding: 0.5em 0 0.5em 1.4em;
+	border-bottom: dashed 1px silver;
+	list-style-type: none!important;
+  }
+ul.hoge li:last-of-type {
+	border-bottom: none;
+  }
+ul.hoge li:before {
+	/*リスト内のアイコン*/
+	font-family: "Font Awesome 5 Free";
+	content: "\f138";/*アイコン種類*/
+	position: absolute;
+	left : 0.5em; /*左端からのアイコンまで*/
+	color: #ffb03f; /*アイコン色*/
+  }
+ul.hoge li:after {
+	/*タイトルタブ*/
+	background: #ffb03f;
+	color: #fff;
+	font-weight: bold;
+	position: absolute;
+	left: -2px;
+	bottom: 100%;
+	padding: 1px 7px;
+	content: "POINT";/*タブの文字*/
+	letter-spacing: 0.05em;/*字間*/
+  }
+p.home {
+	font-size: 1.2em;
+	font-family: 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	background: linear-gradient(transparent 70%, #a7d6ff 70%);
+	font-weight: bold
+}
+
+dt.leftline {
+	padding: 0.25em 0.5em;
+	font-size: 1.0em;
+	color: #494949;
+	background: transparent;
+	border-left: solid 8px #68caf7;
+
+}
+
+dd.para1 {
+	color: #494949;
+	letter-spacing: 0.02em;
+}
+
+
+/* p {
+	font-family: 'Noto Sans JP', '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	color: #494949;
+	letter-spacing: 0.02em;
+} */
+
+section h2 {
+	font-family: '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	background-color: #13448f;
+	color: #fff;
+	text-align: center;
+	font-size: 18px;
+	padding: 0;
+	margin: 0;
+}
+
+section h3 {
+	font-family: '游ゴシック Medium', '游ゴシック体', 'Yu Gothic Medium', YuGothic, 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	background-color: #4982d9;
+	color: #fff;
+	text-align: center;
+	font-size: 16px;
+	padding: 0;
+	margin: 0;
+}
+
+.section {
+	clear: both;
+}
+
+.members {
+	clear: both;
+}
+
+.member {
+	display: block;
+	float: left;
+	margin: 5px 5px;
+	padding: 15px;
+	width: 430px;
+}
+
+.member > div img {
+	display: block;
+	float: left;
+	width: 120px;
+	height: 180px;
+	object-fit: cover;
+}
+
+.member > div > dl {
+        padding-top: 20px;
+	margin-left: 140px;
+}
+
+.member > div > dl dt > em {
+	display: inline-block;
+	margin-right: 30px;
+	font-size: 40px;
+	font-weight: 700;
+	font-style: normal;
+	line-height: 1;
+	font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+}
+
+.member > div > dl .ename {
+	margin-bottom: 3px;
+	margin-left: 0px;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+.member > div > dl .title {
+	margin-bottom: 15px;
+	margin-left: 0px;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 1.4;
+}
+
+.member > div > dl .email {
+	margin-bottom: 3px;
+	margin-left: 0px;
+	font-weight: normal;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.member > div > dl .web {
+	margin-bottom: 0px;
+	margin-left: 0px;
+	font-weight: normal;
+	font-size: 12px;
+	line-height: 1.4;
+}
+
+.member > div > dl .nstop {
+	margin-bottom: 2px;
+	margin-left: 0px;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 1.4;
+}
+
+.topics {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.footerinfo {
+	background-color: #819dc7;
+	color: #fff;
+	width: 100%;
+	font-size: 18px;
+	padding: 8px;
+	margin: -8px;
+}
+
+.footerinfohr {
+	border-top: 1px dashed #13448f;
+	border-bottom: 1px dashed #f0f6ff;
+        margin: 0 -8px;
+}
+
+.footerinfo .icons {
+	width: 100%;
+	height: 160px;
+	text-align: center;
+}
+
+.footerinfo .icon {
+	width: 128px;
+	height: 128px;
+	margin: 16px;
+}
+
+.footerinfo h3 {
+	margin: 0;
+}
+
+#footermap {
+	background-color: #13448f;
+	color: #fff;
+	width: 100%;
+	font-size: 18px;
+	padding: 8px;
+	margin: -8px;
+
+	z-index: 99;
+}
+
+#footermap h3 {
+	font-size: 18px;
+	padding: 0px;
+	margin: 0px;
+}
+
+#footermap p {
+	font-size: 12px;
+	padding: 0px;
+	margin: 8px 0px 16px 0px;
+}
+
+.copyright {
+	margin: 8px auto;
+}
+
+.copyright p {
+	text-align: center;
+	font-size: 10px;
+}
+
+.access {
+	margin-left: 16px;
+	float: left;
+	height: 250px;
+}
+
+#access {
+	list-style-type: none;
+}
+
+#access li {
+	font-size: 12px;
+}
+
+#access li ul {
+	list-style: none;
+}
+
+#access li ul li {
+	font-size: 10px;
+}
+
+.map {
+	width: 100%;
+}
+
+.immap {
+	width: 100%;
+	margin: 0 auto;
+}
+
+#slide-wrapper {
+    position: relative;
+}
+
+#slide-wrapper:before {
+    content:"";
+    display: block;
+    padding-top: 63%;
+}
+
+.slideshow {
+	/*position: relative;
+	width: 100%;
+	height: 375px;
+	overflow: hidden;
+	margin: 0 auto;*/
+	position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.slideshow img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+	transition: 1s;
+        width: 100%;
+}
+
+.slideshow .show {
+	opacity: 1;
+	z-index: 1;
+}
+
+/* home.html 研究室の方向性画像 */
+#statistical_physics_wrapper{
+	text-align: center;
+}
+
+#statistical_physics{
+	width: 400px;
+}
+
+@media screen and (max-width: 530px) {
+	#statistical_physics{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.member {
+    width: 100%;
+	}
+	.member > div img {
+    display: block;
+    float: left;
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+	}
+	.member > div > dl {
+    padding-top: 0px;
+    margin-left: 87px;
+	}
+	.member > div > dl dt > em {
+    margin-right: 0px;
+    font-size: 24px;
+	}
+	.member > div > dl .ename {
+    margin-bottom: 3px;
+    margin-left: 0px;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 1.4;
+	}
+	.member > div > dl .title {
+    margin-bottom: 5px;
+	}
+	.member > div > dl .email {
+    font-size: 7px;
+	}
+	.member > div > dl .web {
+    font-size: 7px;
+	}
+}

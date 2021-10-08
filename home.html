@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Okada Lab, The University of Tokyo">
+  <title>Okada Lab, The University of Tokyo</title>
+  <!-- <meta property="og:title" content="Okada Lab, The University of Tokyo">
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Okada Lab, The University of Tokyo">
+  <meta property="og:url" content="http://mns.k.u-tokyo.ac.jp/">
+  <meta property="og:image" content="./image/og.png"> -->
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CNoto+Sans+JP:400,700" rel="stylesheet">
+
+  <script src="./js/jquery-1.11.3.min.js"></script>
+  <script src="./js/slideshow.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/include.js"></script>
+  <!-- <script src="./js/matrix.js" type="text/javascript"></script>
+  <script src="./js/script.js" type="text/javascript"></script> -->
+  <script id="vs" type="x-shader/x-vertex">
+    attribute vec3 position;
+    attribute vec4 color;
+    attribute vec2 textureCoord;
+    uniform   mat4 mvpMatrix;
+    varying   vec4 vColor;
+    varying   vec2 vTextureCoord;
+    
+    void main(void){
+      vColor        = color;
+      vTextureCoord = textureCoord;
+      gl_Position   = mvpMatrix * vec4(position, 1.0);
+    }
+  </script>
+
+  <script id="fs" type="x-shader/x-fragment">
+    precision mediump float;
+    
+    uniform sampler2D texture;
+    varying vec4      vColor;
+    varying vec2      vTextureCoord;
+    
+    void main(void){
+      vec4 smpColor = texture2D(texture, vTextureCoord);
+      gl_FragColor  = vColor * smpColor;
+    }
+  </script>
+
+  <script id="vs2" type="x-shader/x-vertex">
+    attribute vec3  position2;
+    attribute vec4  color2;
+    uniform   mat4  mvpMatrix2;
+    uniform   float pointSize;
+    varying   vec4  vColor;
+    
+    void main(void){
+      vColor       = color2;
+      gl_Position  = mvpMatrix2 * vec4(position2, 1.0);
+      gl_PointSize = pointSize;
+    }
+  </script>
+
+  <script id="fs2" type="x-shader/x-fragment">
+    precision mediump float;
+  
+    varying vec4 vColor;
+    
+    void main(void){
+      gl_FragColor = vColor;
+    }
+  </script>
+
+
+</head>
+
+<body>
+  <div id="incnav"></div>
+
+  <script type="text/javascript">
+    include("/header_nav.html", "incnav", addNavigationEvents);
+  </script>
+
+  <section class="maincontent">
+    <div class="section content" id="slide-wrapper">
+      <div id="slideshow" class="slideshow">
+        <!-- <canvas id="canvas"></canvas> -->
+        <img src="./images/main.jpg" alt="">
+      </div>
+    </div>
+    <!-- <p style="text-align: right;max-width: 900px;margin-left: auto;margin-right: auto;">
+      <a href="http://mns.k.u-tokyo.ac.jp/index_old.php" target="_blank">&gt;旧岡田研HPはこちら</a>
+    </p> -->
+
+    <div class="section content">
+      <!--<h2>新着情報</h2>
+      <ul class="infos">
+         <li class="info">
+          <span class="date">2019年5月18日(土)</span>
+          <span class="abst"> <a href="http://www.k.u-tokyo.ac.jp/complex/html/examinee/entrance.html">
+            第1回入試説明会 </a>  </span>
+        </li>
+        <li class="info">
+            <span class="date">2019年6月1日(土)</span>
+            <span class="abst"> <a href="http://www.k.u-tokyo.ac.jp/complex/html/examinee/entrance.html">
+              第2回入試説明会 </a>  </span>
+        </li> -->
+      <!-- <li class="info">
+          <span class="date">2018年6月1日</span>
+          <span class="abst">第2回入試説明会</span>
+        </li>
+        <li class="info">
+          <span class="date">2018年7月26日</span>
+          <span class="abst"><a href="http://mns.k.u-tokyo.ac.jp/talks/180507_houshakou.pdf">
+              第7回放射光産業利用支援講座／第8回計算科学連携センターセミナーにて，岡田先生が招待講演を行います（演題：歩留まりや雇用のミスマッチ対策など産業界にも役立つデータ駆動科学）</a></span>
+        </li> -->
+      </ul>
+    </div>
+
+    <div class="section content">
+      <h2>岡田研究室に入るには</h2>
+      <p>
+        訪問，見学などは随時受け付けています．<a href="http://mns.k.u-tokyo.ac.jp/people.html#recruit">こちら</a>をご参照ください。
+      </p>
+    </div>
+
+    <div class="section content">
+      <h2>研究室の方向性</h2>
+      <p> 統計力学を学ぶと，我々はミクロからマクロへつながる階層的な構造が自然界のいたるところに存在することを意識し，物理学の枠組を越えて統計力学が活躍できる様な気がしてきます．<br>
+        岡田研究室では，統計力学や物性理論等の多体系物理の普遍的な視点から，脳科学，情報科学，物性物理学を理論的研究するとともに，そこで得られた理論的な知見を実証するために，多くの実験系研究室と共同研究を行っています．</p>
+      <p id="statistical_physics_wrapper">
+        <img id="statistical_physics" width="100%" src="./images/statistical_physics.png" alt="物理学から見た脳科学">
+      </p>
+    </div>
+
+    <div class="section content">
+      <h2>理論脳科学，計算論的神経科学</h2>
+      <p>
+        物理学と理論脳科学の出会いは，物性理論の研究者のHopfieldによる記憶のモデルの提案から始まりました．Hopfieldは記憶の仕組みが，スピングラスのエネルギーの多谷構造と関係していることを指摘しました．このHopfieldの指摘により，多くの統計物理学者が理論脳科学の研究に参入し，現在では平衡統計力学／非平衡統計力学や大自由度非線形力学系などの物理学的なアプローチが，理論脳科学の主流の一つとなっています．
+      </p>
+    </div>
+
+    <div class="section content">
+      <h2>情報統計力学，機械学習</h2>
+      <p>
+        統計学や機械学習で用いられるベイズ推論の数理構造が，統計力学と等価であることが認識されました．統計力学的手法がベイズ推論に用いられて，20世紀末に情報統計力学と呼ばれる新しい分野がうまれました．情報統計力学は，誤り訂正符号，データ圧縮，CDMA，圧縮センシングに関して，従来の数理科学的手法では取り扱えなかった難問を次々に解決しています．
+      </p>
+    </div>
+
+    <div class="section content">
+      <h2>データ駆動科学，物性理論/マテリアルズインフォマティクス</h2>
+      <p> 脳科学を機械学習で取り扱っていると，この枠組は脳科学以外の分野でも有効であることがわかりました．我々は，この学問分野を問わない新しい枠組をデータ駆動科学となづけました．</p>
+    </div>
+
+    <div class="section content">
+      <h2>研究内容</h2>
+      <p>理論物理学や数理科学を武器に下記のテーマについて研究しています．</p>
+      <p class=home> データ駆動科学 : Data driven science </p>
+      <dl>
+        <dt class=leftline>物性物理学</dt>
+        <dd class=para1>
+          日本の国力の源泉は物性物理学にあります．日本はこの分野で常に世界のトップを走り続けてきました．近年，計算機の性能の劇的な向上に伴い，膨大な数の材料探索を計算機の中でのシミュレーションによって行うことが可能になり，世界中で競争が激化しています．資本力で劣る日本が世界に勝つには，低コストかつ高速に材料探索を進める必要があります．私たちは長年の研究で培ってきたスパースモデリングやベイズ的機械学習に代表されるデータ科学手法を用いてマテリアルズ・インフォマティクスの新しい枠組みを構築し，他分野との連携も通して，世界の普遍的な構造の研究を進めています．
+        </dd>
+        <dt class=leftline>脳科学</dt>
+        <dd class=para1>David Marr
+          から始まる計算論的神経科学では，計算理論，表現とアルゴリズム，ハードウェア実装の三つのレベルの視点で脳の情報処理メカニズムを考えます．対象としている系のマクロな計算理論が，ミクロなハードウェア上でどのように実行されるかを議論する，表現とアルゴリズムのレベルを理解するために，私たちは実験から得られたデータを解析しています．深層学習
+          (Deep Learning)
+          で用いられる畳み込みニューラルネットワークは，一次視覚野の受容野特性にヒントを得て作られました．より高次の脳領野の計算を理論的に理解することは，新たな計算原理に基づく脳型人工知能の開発へと繋がります．</dd>
+        <dt class=leftline>地球惑星科学</dt>
+        <dd class=para1>
+          東日本大震災のような津波被害を防ぐためには，迅速で正確な津波予測システムが必要です．高精度津波シミュレーションで生成した人工ビッグデータを学習させることにより，沿岸津波高や浸水域を予測する手法を開発しています．また，南海トラフ地震による巨大津波に対応するために，私たちが開発した予測手法の社会実装を目指しています．
+        </dd>
+        <!-- <dt class=leftline>核融合/プラズマ工学</dt>
+        <dd class=para1>（編集中）</dd> -->
+      </dl>
+      <p class=home> 理論 : Theory </p>
+      <dl>
+        <dt class=leftline>情報統計力学/機械学習</dt>
+        <dd class=para1>物理学で発展した分配関数や自由エネルギーを計算する手法が，統計学や機械学習で用いられるベイズ推論に用いられて，20
+          世紀末に情報統計力学と呼ばれる新しい分野が生まれました．例えば，小脳のモデルとされるパーセプトロンの学習能力は，スピングラスの理論解析に用いられるレプリカ法で計算できます．この他にも，情報統計力学は，誤り訂正符号，データ圧縮，CDMA，圧縮センシングに関して，従来の数理科学的手法では取り扱えなかった難問を次々に解いています．
+        </dd>
+        <!-- <dt class=leftline>物理モデリング</dt>
+        <dd class=para1>(編集中)</dd> -->
+      </dl>
+    </div>
+  </section>
+
+  <div class="footerinfo">
+    <div class="icons">
+      <a href="./people.html"><img src="./images/members.png" class="icon" alt="メンバーについて"></a>
+      <a href="./research.html"><img src="./images/papers.png" class="icon" alt="研究について"></a>
+    </div>
+  </div>
+
+  <div id="incfooter"></div>
+
+  <script type="text/javascript">
+    include("/footer.html", "incfooter");
+  </script>
+</body>
+
+</html>
