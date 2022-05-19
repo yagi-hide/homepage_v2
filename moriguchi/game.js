@@ -1,4 +1,5 @@
 // キーボードの入力状態を記録する配列の定義
+// request-merge　のテスト
 var input_key_buffer = new Array();
 
 // キーボードの入力イベントをトリガーに配列のフラグ値を更新させる
