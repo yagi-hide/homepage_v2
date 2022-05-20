@@ -57,13 +57,18 @@ var element = ["森口　椋太 / Ryota Moriguchi",
               "2017年3月　都立青山高等学校　卒業",
               "2017年4月　慶應義塾大学　理工学部　物理学科　入学",
               "2021年4月　東京大学大学院理学系研究科　物理学専攻　修士課程　入学",
+              "英字論文",
+              "Ryota Moriguchi, Satoshi Tsutsui, Shun Katakami, Kenji Nagata, Masaichiro Mizumaki, and Masato Okada",
+              "\"Bayesian Inference on Hamiltonian Selections for Mössbauer Spectroscopy\", arXiv:2205.09188, April, 2022.",
               "国内学会",
               "2021年11月　第24回情報論的学習理論ワークショップ　一般発表",
               "2022年3月　日本物理学会第77回年次大会　一般発表"]
 var posi = [  { x: 5, y: -20},{ x: 5, y: 50},{ x: 5, y: 125},{ x: 5, y: 150},{ x: 5, y: 175},{ x: 5, y: 200},{ x: 5, y: 270},{ x: 5, y: 350},{ x: 5, y: 400},{ x: 5, y: 450},
-              { x: 5, y: 500},{ x: 5, y: 550},{ x: 5, y: 600}]
+              { x: 5, y: 500},{ x: 5, y: 550},{ x: 5, y: 575},
+              { x: 5, y: 650},{ x: 5, y: 700},{ x: 5, y: 750}]
 var css_info = ["34px'ＭＳ ゴシック'","24px'ＭＳ ゴシック'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'","24px'ＭＳ ゴシック'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'",
-                "24px'ＭＳ ゴシック'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'"]
+               "24px'ＭＳ ゴシック'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'", 
+               "24px'ＭＳ ゴシック'","14px'ＭＳ 明朝'","14px'ＭＳ 明朝'"]
 
 element.push("00000000000000000000")
 posi.push({ x: 0, y: -30})
@@ -91,7 +96,9 @@ var canv = document.getElementById( "canvas" ) ;
 // 画面を更新する関数を定義 (繰り返しここの処理が実行される)
 function update() {
   // 画面全体をクリア
-  ctx.clearRect(0, 0, canv.height, canv.width);
+  var h = canv.clientHeight;
+  var w = canv.clientWidth;
+  ctx.clearRect(0, 0, h, w);
  
   // 位置(30, 100)に"BLACK"の文字を表示する
   for (let i=0; i<element.length;i++){
