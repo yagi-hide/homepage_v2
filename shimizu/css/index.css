@@ -1,0 +1,106 @@
+ @charset "utf-8";
+
+/* first-view */
+.first-view{
+    height: calc(100vh - 110px);
+    background-image: url(../images/index/bg-brain.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+}
+
+/* first-view-text */
+.first-view-text{
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-bottom: 80px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 1px 1px 10px #4b2c14;
+}
+
+.first-view-text h1{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 56px;
+    line-height: 72px;
+}
+
+.first-view-text p{
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+}
+
+/* lead */
+.lead{
+    max-width: 1200px;
+    margin: 60px auto;
+}
+
+.lead p{
+    line-height: 2;
+    padding-left: 40px;
+}
+
+/* link-button-area */
+.link-button-area{
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* link-button */
+.link-button{
+    background-color: #f4dd64;
+    display: inline-block;
+    min-width: 180px;
+    line-height: 48px;
+    border-radius: 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+}
+
+.link-button:hover{
+    background-color: #d8b500;
+}
+
+/* mobile version */
+@media (max-width: 800px) {
+
+    /* first-view */
+    .first-view{
+        height: calc(100vh - 50px);
+        background-image: url(../images/index/bg-brain.jpg);
+        align-items: flex-start;
+    }
+
+    .first-view-text{
+        padding-top: 60px;
+        padding-left: 20px;
+    }
+
+    .first-view-text h1{
+        font-size: 36px;
+        line-height: 48px;
+    }
+
+    .first-view-text p{
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 15px;
+    }
+
+    /* lead */
+    .lead{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .lead p{
+        text-align: left;
+    }
+}
