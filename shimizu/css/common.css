@@ -1,0 +1,203 @@
+/* common.htmlのcssファイル */
+@charset "utf-8";
+
+/* デフォルトのスタイルを解除してブラウザ間の表示の差異をなくす */
+*,
+::before,
+::after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul,
+ol{
+    list-style: none;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+/* テキストのフォントを指定する */
+/* 文字サイズ、色、行間を指定する */
+/* 背景色を指定する */
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #000000;
+    line-height: 1;
+    background-color: #ffffff;
+}
+/* img要素尾最大幅を指定する */
+img{
+    max-width: 100%;
+}
+
+/* ヘッダーのスタイルを指定する */
+.header-inner{
+    max-width: 1200px;
+    height: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-menu-button{
+    display: none;
+}
+
+/* ロゴとナビゲーションのスタイルを指定する */
+.header-logo{
+    display: block;
+    width: 170px;
+}
+
+.site-menu ul{
+    color: #005497;
+    display: flex;
+}
+
+.site-menu li{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.site-menu ul li a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+/* フッターのスタイルを指定する */
+.footer{
+    color: #ffffff;
+    background-color: #24211b;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* フッター内の要素のスタイルを指定する */
+.site-menu-foot ul{
+    color: #ffffff;
+    display: flex;
+}
+
+.site-menu-foot li{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.site-menu-foot ul li a{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
+.footer-logo{
+    display: block;
+    width: 235px;
+    margin-top: 40px;
+}
+
+.footer-tel{
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.footer-time{
+    font-size: 13px;
+    margin-top: 16px;
+}
+
+.copyright{
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 90px;
+}
+
+/* レスポンシブデザインの記述 */
+@media (max-width: 800px){
+    .site-menu ul{
+        display: block;
+        text-align: center;
+    }
+
+    .site-menu li{
+        margin-top: 20px;
+    }
+
+    .header{
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #ffffff;
+        height: 50px;
+        z-index: 10;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-inner{
+        padding-left: 20px;
+        padding-right: 20px;
+        height: 100%;
+        position: relative;
+    }
+
+    .header-logo{
+        width: 100px;
+    }
+    /* ハンバーガーメニューを作成する */
+    .header-site-menu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        color: #ffffff;
+        background-color: #c7ced3;
+        padding-top: 30px;
+        padding-bottom: 50px;
+        display: none;
+    }
+
+    .header-site-menu.is-show{
+        display: block;
+    }
+
+    .toggle-menu-button{
+        display: block;
+        width: 44px;
+        height: 34px;
+        background-image: url(../images/common/icon-menu.png);
+        background-size: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: transparent;
+        border: none;
+        border-radius: 0;
+        outline: none;
+    }
+
+    /* フッターのレイアウトを調整する */
+    .main{
+        padding-top: 50px;
+    }
+
+    .footer-logo{
+        margin-top: 60px;
+    }
+
+    .footer-time{
+        font-size: 20px;
+    }
+
+    .copyright{
+        margin-top: 50px;
+    }
+}
