@@ -189,6 +189,14 @@ img{
         padding-top: 50px;
     }
 
+    .site-menu-foot ul{
+        display: block;
+        text-align: center;
+    }
+
+    .site-menu-foot li{
+        margin-top: 20px;
+    }
     .footer-logo{
         margin-top: 60px;
     }

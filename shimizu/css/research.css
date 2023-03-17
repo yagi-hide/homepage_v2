@@ -70,11 +70,17 @@
 }
 
 .feature-text p{
+    text-align: justify;
     font-size: 15px;
     line-height: 28px;
     margin-top: 25px;
 }
 
+.research-link{
+    color: #284155;
+    text-decoration: underline;
+    text-decoration-color: #284155;
+}
 /* footer */
 .footer{
     margin-top: 100px;
