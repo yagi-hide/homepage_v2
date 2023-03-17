@@ -43,6 +43,7 @@
 }
 
 .lead p{
+    text-align: center;
     line-height: 2;
     padding-left: 40px;
 }
@@ -73,7 +74,8 @@
 
     /* first-view */
     .first-view{
-        height: calc(100vh - 50px);
+        height: auto;
+        max-width: 100%;
         background-image: url(../images/index/bg-brain.jpg);
         align-items: flex-start;
     }

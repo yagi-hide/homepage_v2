@@ -68,6 +68,7 @@
 }
 
 .feature-text ol li{
+    text-align: justify;
     margin-top: 15px;
 }
 
