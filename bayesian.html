@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Okada Lab, The University of Tokyo">
+  <title>Okada Lab, The University of Tokyo</title>
+  <!-- <meta property="og:title" content="Okada Lab, The University of Tokyo">
+  <meta property="og:type" content="article">
+  <meta property="og:description" content="Okada Lab, The University of Tokyo">
+  <meta property="og:url" content="http://mns.k.u-tokyo.ac.jp/">
+  <meta property="og:image" content="./image/og.png"> -->
+  <link rel="shortcut icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CNoto+Sans+JP:400,700" rel="stylesheet">
+
+  <script src="./js/jquery-1.11.3.min.js"></script>
+  <script src="./js/slideshow.js"></script>
+  <script src="./js/main.js"></script>
+  <script src="./js/include.js"></script>
+  <!-- <script src="./js/matrix.js" type="text/javascript"></script>
+  <script src="./js/script.js" type="text/javascript"></script> -->
+  <script id="vs" type="x-shader/x-vertex">
+    attribute vec3 position;
+    attribute vec4 color;
+    attribute vec2 textureCoord;
+    uniform   mat4 mvpMatrix;
+    varying   vec4 vColor;
+    varying   vec2 vTextureCoord;
+    
+    void main(void){
+      vColor        = color;
+      vTextureCoord = textureCoord;
+      gl_Position   = mvpMatrix * vec4(position, 1.0);
+    }
+  </script>
+
+  <script id="fs" type="x-shader/x-fragment">
+    precision mediump float;
+    
+    uniform sampler2D texture;
+    varying vec4      vColor;
+    varying vec2      vTextureCoord;
+    
+    void main(void){
+      vec4 smpColor = texture2D(texture, vTextureCoord);
+      gl_FragColor  = vColor * smpColor;
+    }
+  </script>
+
+  <script id="vs2" type="x-shader/x-vertex">
+    attribute vec3  position2;
+    attribute vec4  color2;
+    uniform   mat4  mvpMatrix2;
+    uniform   float pointSize;
+    varying   vec4  vColor;
+    
+    void main(void){
+      vColor       = color2;
+      gl_Position  = mvpMatrix2 * vec4(position2, 1.0);
+      gl_PointSize = pointSize;
+    }
+  </script>
+
+  <script id="fs2" type="x-shader/x-fragment">
+    precision mediump float;
+  
+    varying vec4 vColor;
+    
+    void main(void){
+      gl_FragColor = vColor;
+    }
+  </script>
+
+
+</head>
+
+<body>
+  <div id="incnav"></div>
+
+  <script type="text/javascript">
+    include("./header_nav.html", "incnav", addNavigationEvents);
+  </script>
+
+  <section class="maincontent">
+<div class="section content">
+      <h2>ベイズ計測の進捗とプレゼンテーション資料，解説，論文</h2>
+      <p class=home> SPring-8全ビームラインベイズ化計画</p>
+      <dl>
+<dt class=leftline>メスバウアー分光法</dt>
+        <dd class=para1>
+        第24回情報論的学習理論ワークショップ (IBIS2021) <br>
+			森口椋太, 片上瞬, 永田賢ニ, 水牧 仁一朗, 岡田真人<br>
+			「メスバウアー分光スペクトルデータに対するベイジアンモデル選択」 <p>
+			物理学会第77回年次大会、2022年3月<br>
+			森口椋太、筒井智嗣、片上舜、永田賢二、水牧仁一朗、岡田真人<br>
+			「メスバウアースペクトルに対するベイズ計測」<br>
+			Ryota Moriguchi, Satoshi Tsutsui, Shun Katakami, Kenji Nagata, Masaichiro Mizumaki, Masato Okada.<br>
+			“<a href="https://journals.jps.jp/doi/full/10.7566/JPSJ.91.104002">Bayesian Inference on Hamiltonian Selections for Mössbauer Spectroscopy</a>”,<br> Journal of the Physical Society of Japan, 91, 104002 (2022)                     </dd>
+        <dt class=leftline>X線小角散乱</dt>
+        <dd class="para1">第25回情報論的学習理論ワークショップ (IBIS2022)<br>
+		林悠偉、片上舜、桑本滋生、永田賢二、水牧仁一朗、岡田真人<br>
+「小角散乱法の計測データを用いた試料パラメータのベイズ推定」<p>
+
+第88回SPring-8先端利用技術ワークショップ/<br>
+			「第4回データ駆動科学によるデータ解析高度化～ベイズ計測～」2023年３月<br>
+林悠偉、片上舜、桑本滋生、永田賢二、水牧仁一朗、岡田真人<br>
+「小角散乱法の計測データを用いた試料パラメータのベイズ推定」<p>
+
+物理学会第77回年次大会、2023年3月<br>
+林悠偉、片上舜、桑本滋生、永田賢二、水牧仁一朗、岡田真人<br>
+「小角散乱法データを用いた試料パラメータのベイズ推論」<br>
+Yui Hayashi, Shun Katakami, Shigeo Kuwamoto, Kenji Nagata, Masaichiro Mizumaki, Masato Okada.
+“<a href="https://arxiv.org/abs/2303.04983">Bayesian Inference for Small-Angle Scattering Data</a>”, March, 2023.
+<p>
+</dd>
+<dt class=leftline>X線吸収スペクトル</dt>
+        <dd class=para1>第25回情報論的学習理論ワークショップ (IBIS2022)<br>
+		竝河伴裕、永田賢二、片上舜、水牧仁一郎、岡田真人<br>
+「ベイズ推論による光吸収スペクトルのスペクトル分解」<p>
+
+物理学会第77回年次大会、2022年3月<br>
+竝河伴裕、永田賢二、片上舜、水牧仁一郎、岡田真人<br>
+「ベイズ推論による光吸収スペクトルのスペクトル分解」<p>
+
+Tomohiro Nabika,Kenji Nagata,Shun Katakami,Masaichiro Mizumaki,Masato Okada. <br>
+“Bayesian Spectral Deconvolution Based on Binominal Distribution”, arXiv:2212.07053, December, 2022.<p>
+</dd>
+<p class=home> X線光電子放出スペクトルとX線吸収スペクトルおよびベイズ統合</p>
+      <dl>
+        <dt class=leftline>実験室での測定</dt>
+		  NMR
+        <dd class=para1>第25回情報論的学習理論ワークショップ（IBIS2022）<br>
+			上田朔, 片上舜, 吉田章吾, 小山岳秀, 中井祐介, 水戸毅, 水牧仁一郎, 岡田真人<br>
+			「核磁気共鳴法へのデータ駆動科学的アプローチ」<p>
+			物理学会第77回年次大会、2023年3月<br>
+			上田朔, 片上舜, 吉田章吾, 中井祐介, 水戸毅, 水牧仁一朗, 岡田真人<br>
+			「核磁気共鳴法へのデータ駆動科学的手法の開発」 <br>
+			Hajime Ueda, Shun Katakami, Shogo Yoshida, Takehide Koyama, Yusuke Nakai, Takeshi Mito, Masaichiro Mizumaki, Masato Okada<br>
+			"<a href="https://journals.jps.jp/doi/full/10.7566/JPSJ.92.054002">Bayesian Approach to T1 Analysis in NMR Spectroscopy with Applications to Solid State Physics</a>" <br>
+			Journal of the Physical Society of Japan.92, 054002 (2023)
+			<p>
+			Hajime Ueda, Shun Katakami, Shogo Yoshida, Yusuke Nakai, Takeshi Mito, Masaichiro Mizumaki, Masato Okada<br>
+			"<a href="https://arxiv.org/abs/2305.05170">Efficient NMR measurement and data analysis supported by the Bayesian inference: The case of the heavy fermion compound YbCo2Zn20</a>", <br>
+			             
+        </dd>
+磁化率と比熱およびベイズ統合
+        <dd class=para1>第25回情報論的学習理論ワークショップ（IBIS2022）<br>
+西村怜，片上舜，永田賢二，水牧仁一朗，岡田真人<br>
+「複数実験結果を用いたベイズ推論によるパラメータ推定」<p>
+
+物理学会第77回年次大会、2023年3月<br>
+西村怜，片上舜，永田賢二，水牧仁一朗，岡田真人<br>
+「ベイズ統合による結晶場ハミルトニアンパラメータ推定」<p>
+
+        </dd>
+        <!-- <dt class=leftline>物理モデリング</dt>
+        <dd class=para1>(編集中)</dd> -->
+      </dl>
+    </div>
+  </section>
+
+  <div class="footerinfo">
+    <div class="icons">
+      <a href="./people.html"><img src="./images/members.png" class="icon" alt="メンバーについて"></a>
+      <a href="./research.html"><img src="./images/papers.png" class="icon" alt="研究について"></a>
+    </div>
+  </div>
+
+  <div id="incfooter"></div>
+
+  <script type="text/javascript">
+    include("./footer.html", "incfooter");
+  </script>
+</body>
+
+</html>
