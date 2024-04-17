@@ -1,47 +1,181 @@
 <!DOCTYPE html>
 <html lang="ja" style="height:100%;">
 
+<!-- <head>
+  <link rel="icon" href="https://via.placeholder.com/70x70">
+  <link rel="stylesheet" href="./mvp.css">
+
+  <meta charset="utf-8">
+  <meta name="description" content="My description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>My title</title>
+</head> -->
+
 <head>
+  <link rel="icon" href="https://via.placeholder.com/70x70">
+  <link rel="stylesheet" href="./mvp.css">
+
   <meta charset="UTF-8">
+  <meta name="description" content="My description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Taichi Kusumi</title>
 </head>
 
 <body id="index-page">
-  <h2>久住 太一 (Taichi Kusumi)</h2>
-  <br>
-  Last updated: September 3, 2023
-  <br>
-  <hr>
-  <ul>
-    <li>所属</li>
-    <ul>
-      <li>東京大学大学院新領域創成科学研究科複雑理工学専攻 岡田研究室</li>
-    </ul>
-    <li>連絡先</li>
-    <ul>
-      <li>部屋 : 柏の葉キャンパス基盤棟 7A8</li>
-      <li>E-mail: kusumi[at]mns.k.u-tokyo.ac.jp</li>
-    </ul>
-  </ul>
-  <hr>
-  <ul>
-    <li>プロフィール</li>
-    2018.4 東京大学理科一類 入学<br>
-    2022.9 東京大学文学部人文学科哲学専修 卒業<br>
-    2022.10 東京大学大学院新領域創成科学研究科複雑理工学専攻 入学<br>
-  </ul>
-  <hr>
-  <ul>
-    <li>英文学術論文</li>
-    <ol>
-      <li>
-        Taichi Kusumi, Shun Katakami, Ryo Ishikawa, Kazuaki Kawahara, Naoya Shibata, Masato Okada<br>
-        Fast Reconstruction of Scanning Transmission Electron Microscopy Images Using Markov Random Field Model<br>
-        Ultramicroscopy, 253, 2023, 113811<br>
-        <a href="https://doi.org/10.1016/j.ultramic.2023.113811">https://doi.org/10.1016/j.ultramic.2023.113811</a>
-      </li>
-    </ol>
-  </ul>
+  <header>
+    <nav>
+      <Div Align="left">Last updated: <time id="modified_date"></time></Div>
+      <script>
+        /**
+          * ステップ1
+          * ファイルの更新日を取得
+          */
+        // HTMLファイルの最終更新日を取得
+        const last = new Date(document.lastModified);
+        /**
+          * ステップ2
+          * 取得した日付データを「年・月・日」に分けて取得
+          */
+        // 取得した日付を「年・月・日」に分けて変数に格納する
+        const year = last.getFullYear();
+        const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const d = new Date();
+        let name = month[d.getMonth()];
+        // const month = last.getMonth() + 1;
+        const date = last.getDate();
+        /**
+          * ステップ3
+          * 「月・日」の値が1桁の場合は先頭に「0」を追加して2桁に修正
+          */
+        // 月・日の値を修正した後に格納する変数を用意する
+        let fixedMonth = month;
+        let fixedDate = date;
+        // 月の値が10より小さい場合は先頭に「0」を追加
+        if (month < 10) {
+          fixedMonth = "0" + month;
+        }
+        // 日の値が10より小さい場合は先頭に「0」を追加
+        if (date < 10) {
+          fixedDate = "0" + date;
+        }
+        /**
+          * ステップ4
+          * 上書き用の日付のテキストを作成
+          */
+        // 表示用のテキストを作成 例: 2024年2月8日
+        const viewDateText = year + ' ' + name + ', ' + date;
+        // データ用の文字列を作成 例: 2024-02-08
+        const datetimeText = year + "-" + fixedMonth + "-" + fixedDate;
+        /**
+          * ステップ5
+          * HTMLの要素に値を上書き
+          */
+        // 更新日の表示先のHTML要素「time」タグを取得
+        const target = document.getElementById('modified_date');
+        // timeタグの内容を上書きする 例: 2024年2月8日
+        target.textContent = viewDateText;
+        // timeタグのdatetime属性を追加する 例: 2024-02-08
+        target.setAttribute("datetime", datetimeText);
+      </script>
+      <ul>
+        <li><a href="#">Contents</a>
+          <ul>
+            <li><a href="#career">Academic Career</a></li>
+            <li><a href="#publication">Publication</a></li>
+            <li><a href="#conference">Conference</a></li>
+            <li><a href="#award">Awards</a></li>
+            <li><a href="#others">Others</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <Div Align="left">
+      <h1> Taichi Kusumi <br> 久住　太一 </h1>
+      所属：東京大学大学院新領域創成科学研究科複雑理工学専攻 岡田研究室 <br>
+      居室：柏の葉キャンパス基盤棟　7A4 <br>
+      E-mail：kusumi[depth]mns.k.u-tokyo.ac.jp (Please insert @ instead of [depth].)
+    </Div>
+  </header>
+
+  <main>
+    <hr>
+    <section id="career">
+      <header>
+        <h2>Academic Career</h2>
+      </header>
+      2018 Apr.&emsp;東京大学理科一類　入学<br>
+      2022 Sep.&emsp;東京大学文学部人文学科　哲学専修　卒業<br>
+      2022 Oct.&emsp;東京大学大学院新領域創成科学研究科　複雑理工学専攻　修士課程　入学<br>
+      2024 Mar.&emsp;東京大学大学院新領域創成科学研究科　複雑理工学専攻　修士課程　修了<br>
+      2024 Apr.&emsp;東京大学大学院新領域創成科学研究科　複雑理工学専攻　博士課程　入学<br>
+      2024 Apr.&emsp;東京大学「グリーントランスフォーメーションを先導する高度人材育成」プロジェクト（SPRING GX）
+    </section>
+
+    <hr>
+    <section id="publication">
+      <header>
+        <h2>Publication</h2>
+      </header>
+      <ol reversed>
+        <li>
+          <b><u>T. Kusumi</u></b>, S. Katakami, R. Ishikawa, K. Kawahara, N. Shibata, M. Okada,
+          "Fast Reconstruction of Scanning Transmission Electron Microscopy Images Using Markov Random Field Model,"
+          Ultramicroscopy,
+          <b>253</b>, 2023, 113811.
+          <a href="https://doi.org/10.1016/j.ultramic.2023.113811">https://doi.org/10.1016/j.ultramic.2023.113811</a>
+        </li>
+      </ol>
+    </section>
+    <hr>
+    <section id="conference">
+      <header>
+        <h2>Conference</h2>
+      </header>
+      <ol reversed>
+        <li>
+          （査読有り・ポスター）
+          <b><u>T. Kusumi</u></b>, S. Katakami, R. Ishikawa, K. Kawahara, N. Shibata, and M. Okada, “Real-time Denoising
+          Algorithm for
+          STEM Imaging Using Markov Random Field Model,” Microscopy and Microanalysis 2024, Cleveland, Ohio, USA,
+          July, 2024.
+        </li>
+        <li>
+          （査読無し・口頭）
+          <b><u>久住太一</u></b>，片上舜，石川亮，川原一晃，柴田直哉，岡田真人，「マルコフ確率場モデルに基づくSTEM像の実時間修復」，日本顕微鏡学会，幕張メッセ，千葉，2024年6月．
+        </li>
+      </ol>
+    </section>
+    <hr>
+    <section id="award">
+      <header>
+        <h2>Awards</h2>
+      </header>
+      <ol reversed>
+        <li>
+          Microscopy and Microanalysis 2024, Student Scholar Award, April, 2024.<sup>NEW</sup><br>
+          国際学会Microscopy and Microanalysisに応募した学生の中から少数名が選ばれる賞．2024年は200名以上の応募があった．受賞者には最大$1,000の参加費援助が与えられる．[<a
+            href="https://microscopy.org/m-and-m-meeting-travel-awards" target="_blank">Link</a>]
+        </li>
+      </ol>
+    </section>
+    <hr>
+    <section id="others">
+      <header>
+        <h2>Others</h2>
+      </header>
+      <ol reversed>
+        <li>
+          （修士課程短縮修了）新領域創成科学研究科複雑理工学専攻において修士短縮修了特別審査に合格し，半年間の短縮終了が認められた．
+        </li>
+        <li>
+          （ソフトウェア実装）マルコフランダムフィールドモデルを用いたリアルタイム画像修復プログラムを開発し，電子顕微鏡関連データの解析ソフトウェアDigitalMicrograph(Gatan Inc.)に実装した．
+        </li>
+        <li>
+          （特許出願）岡田真人（17%），片上舜（17%），<b><u>久住太一（16%）</u></b>，柴田直哉（17%），石川亮（17%），川原一晃（16%），マルコフランダムフィールドモデルを用いた電子顕微鏡画像の画像修復装置，特願2023-75963，2023年5月2日出願．
+        </li>
+      </ol>
+    </section>
 </body>
 
 </html>
